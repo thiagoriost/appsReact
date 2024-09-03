@@ -1,35 +1,108 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Login from './views/login/Login';
+import Home from './views/home/Home';
+import NotFound from './views/noFound/NotFound';
 import './App.css'
+import logoBanc from './assets/svgs/logo-banc.svg'; // Ajusta la ruta según sea necesario
+import first from './assets/svgs/first.svg'; // Ajusta la ruta según sea necesario
+import second from './assets/svgs/second.svg'; // Ajusta la ruta según sea necesario
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [showDinamicIcon, setShowDinamicIcon] = useState(false);
+  const [firstIcon, setFirst] = useState(false);
+  // const [secondIcon, setSecondIcon] = useState(false)
+  const [thirdIcon, setThirdIcon] = useState(false)
+
+  
+  
+  useEffect(() => {
+    let interv = 0;
+    setTimeout(() => {
+      interv = setInterval(() => {    
+        setFirst(firstIcon => !firstIcon);
+      }, 3000);
+      
+    }, 300);
+    return () => {
+      clearInterval(interv);
+    }
+  }, [])
+  
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      {
+        true &&
+        <div className="begin">
+          <img src={logoBanc} alt="Logo" style={{width:'350px'}}/>
+          {
+            showDinamicIcon &&
+            <>
+              {
+                firstIcon &&
+                <img style={{}} className='first' src={first} alt="first" />
+              }
+              {
+                !firstIcon &&
+                <img style={{}} className='second' src={second} alt="second" />
+              }
+              {
+                thirdIcon &&
+                <img style={{left:'295px', top:'296px'}} className='first' src={first} alt="third" />
+              }
+            </>
+          }
+        </div>
+      }
+      {
+        false &&
+      <div className='globalContainer'>
+        <div className='bannerHome'>
+          <img src={logoBanc} alt="Logo" className='fixImg'/>
+          <div style={{ alignItems:'end', display: 'flex', justifyContent: 'space-around', width: '150px' }}>
+              <i className="bi bi-bell" style={{ fontSize: '20px', marginLeft:'6px' }}></i>
+              <i className="bi bi-question-circle" style={{ fontSize: '20px' }}></i>
+              <i className="bi bi-whatsapp" style={{ fontSize: '20px', marginRight:'2px' }}></i>
+          </div>
+        </div>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/home" element={<Home />} />
+            {/* Ruta para páginas no encontradas */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Router>
+        <div className='footer'>
+          <div className="iconFooter">
+            <i className="bi bi-house-door" style={{ fontSize: '20px' }}></i>
+            <p className='textIconFooter'>Inicio</p>
+          </div>
+          <div className="iconFooter">
+            <i className="bi bi-credit-card-2-front" style={{ fontSize: '20px' }}></i>
+            <p className='textIconFooter'>Transacciones</p>
+          </div>
+          <div className="iconFooter">
+            <i className="bi bi-grid" style={{ fontSize: '20px' }}></i>
+            <p className='textIconFooter'>Explorar</p>
+          </div>
+          <div className="iconFooter">
+            <i className="bi bi-journal-text" style={{ fontSize: '20px' }}></i>
+            <p className='textIconFooter'>Trámites y solicitudes</p>
+          </div>
+          <div className="iconFooter">
+            <i className="bi bi-gear" style={{ fontSize: '20px' }}></i>
+            <p className='textIconFooter'>Ajustes</p>
+          </div>
+        </div>
+        
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      }
     </>
-  )
+  );
 }
 
 export default App

@@ -1,0 +1,74 @@
+.home-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dynamic-key {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.dynamic-key-label {
+    font-size: 14px;
+    color: gray;
+}
+
+.dynamic-key-value {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.main-transactions, .explore-categories {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.transaction-buttons, .categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.transaction-buttons button, .categories button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    flex: 1 1 45%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.bottom-navigation {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
