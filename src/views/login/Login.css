@@ -1,11 +1,48 @@
 
 .login-container{
-    background-color: aqua;
-    /* width: 100vw; 
-    height: 100vh;  */
+    /* background-color: rgba(0, 255, 255, 0.164); */
+    width: 100vw; 
+    height: 100vh; 
     /* background-image: url('./assets/logIn.jpeg'); 
     background-size: cover;  */
     /* background-position: center;  */
     /* background-repeat: no-repeat;  */
     /* background-attachment: fixed;  */
+}
+
+.divBtnInitSesion{
+    display: flex;
+    justify-content: flex-end;
+    /* margin-right: 15px; */
+    margin-top: 25px;
+    background-color: rgba(0, 255, 255, 0.178);
+}
+
+.btnInitSesion{
+    height: 40px;
+    width: 100%;
+    /* background-color: rgba(255, 0, 0, 0.164); */
+    background-color: transparent;
+    border: none;
+}
+
+.imgDivCargando{
+    align-items: center;
+    background-color: aliceblue;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+}
+
+.row1{
+
+}
+.row2{
+
+}
+.row3{
+
 }
